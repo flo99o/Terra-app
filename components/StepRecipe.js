@@ -1,20 +1,11 @@
-import { View, Text, Pressable, StyleSheet, FlatList } from "react-native";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faArrowDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { View, Text, StyleSheet, FlatList } from "react-native";
+import RecipeSubmenu from "./RecipeSubmenu";
 
-export const StepRecipe = ({ isOpen, isClose }) => {
-
-
-
-
-  return (
-    <View>
-      <Pressable
-        style={styles.stepPreparation}
-        onPress={() => console.log("hello ingredient")}
-      >
-        <Text>Ingredients</Text>
+export const StepRecipe = () => {
+  const submenus = [
+    {
+      title: "Ingrédients",
+      content: (
         <FlatList
           data={[
             { key: "Oignons" },
@@ -24,38 +15,13 @@ export const StepRecipe = ({ isOpen, isClose }) => {
             { key: "Curcuma" },
             { key: "Basilic" },
           ]}
-          renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
+          renderItem={({ item }) => <Text style={styles.item}> {item.key}</Text>}
         />
-        <FontAwesomeIcon
-          icon={faChevronRight}
-          color={"#AC7A65"}
-          style={{ marginLeft: 250 }}
-          size={25}
-        />
-      </Pressable>
-      <Pressable style={styles.stepPreparation}>
-        <Text>Preparation</Text>
-        <Text >
-          Elit aute in id ea aute incididunt nisi ullamco adipisicing elit
-          ipsum. Nisi consectetur eiusmod culpa excepteur elit. Qui magna id
-          proident proident pariatur et enim anim velit proident veniam eiusmod
-          enim. Aute occaecat non dolore pariatur do consectetur culpa
-          adipisicing et officia anim exercitation aliquip pariatur. Eiusmod
-          amet amet magna officia ipsum in laboris laborum esse do cillum
-          voluptate laboris mollit. Nisi pariatur mollit sunt adipisicing ipsum
-          eu cupidatat quis.
-        </Text>
-        <FontAwesomeIcon
-          icon={faChevronRight}
-          color={"#AC7A65"}
-          style={{ marginLeft: 240 }}
-          size={25}
-        />
-      </Pressable>
-
-      <Pressable style={styles.stepPreparation}>
-        <Text>Mode d'emploi</Text>
-        {}
+      ),
+    },
+    {
+      title: "Préparation",
+      content: (
         <Text>
           Elit aute in id ea aute incididunt nisi ullamco adipisicing elit
           ipsum. Nisi consectetur eiusmod culpa excepteur elit. Qui magna id
@@ -66,13 +32,29 @@ export const StepRecipe = ({ isOpen, isClose }) => {
           voluptate laboris mollit. Nisi pariatur mollit sunt adipisicing ipsum
           eu cupidatat quis.
         </Text>
-        <FontAwesomeIcon
-          icon={faChevronRight}
-          color={"#AC7A65"}
-          style={{ marginLeft: 218 }}
-          size={25}
-        />
-      </Pressable>
+      ),
+    },
+    {
+      title: "Mode d'emploi",
+      content: (
+        <Text>
+          Elit aute in id ea aute incididunt nisi ullamco adipisicing elit
+          ipsum. Nisi consectetur eiusmod culpa excepteur elit. Qui magna id
+          proident proident pariatur et enim anim velit proident veniam eiusmod
+          enim. Aute occaecat non dolore pariatur do consectetur culpa
+          adipisicing et officia anim exercitation aliquip pariatur. Eiusmod
+          amet amet magna officia ipsum in laboris laborum esse do cillum
+          voluptate laboris mollit. Nisi pariatur mollit sunt adipisicing ipsum
+          eu cupidatat quis.
+        </Text>
+      ),
+    },
+  ];
+  return (
+    <View>
+      {submenus.map((menu) => (
+        <RecipeSubmenu title={menu.title}>{menu.content}</RecipeSubmenu>
+      ))}
     </View>
   );
 };
@@ -82,13 +64,14 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    padding: 25,
+    padding: 20,
     borderWidth: 0.2,
     borderColor: "#AC7A65",
     color: "#AC7A65",
   },
-  item:{
-    fontSize: 10,
-
-  }
+  icons: {},
+  item: {
+    fontSize: 20,
+    
+  },
 });

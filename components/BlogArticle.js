@@ -25,7 +25,9 @@ export const BlogArticle = () => {
             </Pressable>
           </View>
           <View>
-            <Text style={{color:"white", fontWeight:"800", fontSize:40}}>Titre de l'article</Text>
+            <Text style={{ color: "white", fontWeight: "800", fontSize: 40 }}>
+              Titre de l'article
+            </Text>
           </View>
 
           <View>
@@ -41,19 +43,16 @@ export const BlogArticle = () => {
       </View>
       <View>
         <View style={styles.blogContent}>
-          <Text> Jane Doe et  date de publication </Text>
-          
+          <Text> Jane Doe et date de publication </Text>
         </View>
 
-        <Text style={{fontWeight:"700", marginTop:10}}>
-          {" "}
+        <Text style={{ fontWeight: "700", padding: 15 }}>
           Sit eu mollit sunt adipisicing ipsum occaecat occaecat veniam
           exercitation ipsum velit. Elit culpa amet consequat in anim aliqua
-          laboris amet Lorem veniam laborum. 
+          laboris amet Lorem veniam laborum.
         </Text>
 
-        <Text style={{marginTop:20, fontWeight:"300"}}>
-          {" "}
+        <Text style={{ padding: 15, fontWeight: "300" }}>
           Sunt voluptate sint dolore enim dolor do magna. Est cupidatat
           consequat mollit ipsum tempor sit laboris mollit esse duis. Esse
           aliquip Lorem aliquip quis sint excepteur esse velit excepteur aliqua
@@ -62,15 +61,9 @@ export const BlogArticle = () => {
           consectetur enim et quis sint voluptate. Tempor labore laboris do id
           aliquip quis Lorem sunt cillum magna minim.
         </Text>
-       <View style={styles.buttonMore}>
-        <Button
-         title="Read More"
-          color={"#6d7967"}
-        />
-
-       
-       </View>
-       
+        <View style={styles.buttonMore}>
+          <Button title="Read More" color={"#6d7967"} />
+        </View>
       </View>
     </View>
   );
@@ -86,10 +79,11 @@ const styles = StyleSheet.create({
     height: 400,
   },
   blogContent: {
-    marginTop:20,
-  },
-  buttonMore :{
-   width:200,
-  }
 
+    padding:10
+  },
+  buttonMore: {
+    alignItems: "center",
+    padding: 20,
+  },
 });

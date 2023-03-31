@@ -14,22 +14,15 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import { Tagues } from "./Tagues";
 import { StepRecipe } from "./StepRecipe";
-import { Ingredients } from "./Ingredients";
-import { Notes } from "./Notes";
 import { useState } from "react";
 import { faArrowLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 export const ProfilRecipe = () => {
   return (
-    <View
-      style={[
-        styles.recipeContainer,
-
-      ]}
-    >
+    <View style={[styles.recipeContainer]}>
       <View style={{ flex: 2, backgroundColor: "#6d7967" }}>
         <View style={styles.imgContainer}>
-          <View style={{flexDirection:"row", alignItems: "center"}}>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
             <FontAwesomeIcon
               icon={faArrowLeft}
               size={30}
@@ -65,7 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   imgContainer: {
-   marginTop:45,
+    marginTop: 45,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -77,27 +70,18 @@ const styles = StyleSheet.create({
   titleRecipe: {
     fontSize: 30,
     color: "#fff",
-    alignItems:"center",
-    padding:10
+    alignItems: "center",
+    padding: 10,
   },
   stepRecipes: {
     flex: 3,
   },
   backArrow: {
     color: "#fff",
-    marginRight:40,
+    marginRight: 40,
   },
   favoriteRecipe: {
     color: "#fff",
-    marginLeft:40,
-  },
-  stepPreparation: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    padding:25,
-    borderWidth:0.2,
-    borderColor: '#AC7A65',   
-    color:"#AC7A65"
+    marginLeft: 40,
   },
 });

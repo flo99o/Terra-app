@@ -1,41 +1,34 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Pressable,
-} from "react-native";
+import { StyleSheet, Text, View, Pressable } from "react-native";
 import { Category } from "../components/Category";
 import { Recipes } from "../components/Recipes";
 import { SearchBar } from "../components/SearchBar";
+import { TabButton } from "../components/TabButton";
+
+const TABS = {
+  Catégories: <Category />,
+  Recettes: <Recipes />,
+};
 
 export const HomeScreen = ({ navigation }) => {
-  const [searchByKeyWord, setSearchKeyWord] = useState("");
-  const [toggleHome, setToggleHome] = useState(false);
+  const [activeTab, setActiveTab] = useState("Catégories");
 
   return (
     <View style={styles.container}>
       <SearchBar />
       <View style={styles.buttonContainer}>
-        <View style={styles.categoryButton}>
-          <Pressable
-            onPress={() => setToggleHome(false)}
-            style={{ backgroundColor: toggleHome ? "transparent" : "#AC7A65", padding:10, borderRadius:1 }}
-          >
-            <Text style={{ fontSize: 25 }}>Categories</Text>
-          </Pressable>
-        </View>
-
-        <View style={styles.recipeButton}>
-          <Pressable
-            onPress={() => setToggleHome(true)}
-            style={{ backgroundColor: toggleHome ? "#AC7A65" : "transparent", padding:10, borderRadius:1 }}
-          >
-            <Text style={{ fontSize: 25 }}>Recettes</Text>
-          </Pressable>
-        </View>
+        <TabButton
+          title={"Catégories"}
+          onToggle={setActiveTab}
+          activeTab={activeTab}
+        />
+        <TabButton
+          title={"Recettes"}
+          onToggle={setActiveTab}
+          activeTab={activeTab}
+        />
       </View>
-      {toggleHome ? <Recipes /> : <Category />}
+      {TABS[activeTab]}
     </View>
   );
 };
@@ -44,17 +37,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
-    backgroundColor:"#EFE7DF"
+    backgroundColor: "#EFE7DF",
   },
   buttonContainer: {
     flexDirection: "row",
-    justifyContent: "center",
     padding: 20,
-  },
-  recipeButton: {
-    marginLeft: 40,
-  },
-  categoryButton: {
-    marginRight: 40,
+    justifyContent: "space-between",
+   
   },
 });
