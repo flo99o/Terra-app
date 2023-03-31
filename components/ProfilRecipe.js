@@ -20,29 +20,26 @@ import { useState } from "react";
 import { faArrowLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 export const ProfilRecipe = () => {
-  const [hideComponent, showComponent] = useState(false);
-  const [arrowRight, arrowDown] = useState(false);
-
   return (
     <View
       style={[
         styles.recipeContainer,
-        {
-          flexDirection: "column",
-        },
+
       ]}
     >
       <View style={{ flex: 2, backgroundColor: "#6d7967" }}>
         <View style={styles.imgContainer}>
-          <View style={{ flexDirection: "row" }}>
-            <FontAwesomeIcon icon={faArrowLeft} size={30} style={{color:"#fff"}} />
-            <Text style={{ color: "white", fontSize: 28, padding: 10 }}>
-              Soupe au groseil
-            </Text>
+          <View style={{flexDirection:"row", alignItems: "center"}}>
+            <FontAwesomeIcon
+              icon={faArrowLeft}
+              size={30}
+              style={styles.backArrow}
+            />
+            <Text style={styles.titleRecipe}>Micro Minéreaux</Text>
             <FontAwesomeIcon
               icon={faHeart}
-              size={32}
-              style={{ color: "white" }}
+              size={30}
+              style={styles.favoriteRecipe}
             />
           </View>
 
@@ -57,24 +54,7 @@ export const ProfilRecipe = () => {
       </View>
 
       <View style={styles.stepRecipes}>
-        <View style={{flexDirection:"row"}}>
-          <Pressable onPress={() => console.log("hello ingredient")}>
-            <Ingredients />
-            <FontAwesomeIcon icon={faChevronRight} />
-          </Pressable>
-        </View>
-        <View>
-          <Pressable>
-            <StepRecipe />
-            <FontAwesomeIcon icon={faChevronRight} />
-          </Pressable>
-        </View>
-        <View>
-          <Pressable>
-            <Notes />
-            <FontAwesomeIcon icon={faChevronRight} />
-          </Pressable>
-        </View>
+        <StepRecipe />
       </View>
     </View>
   );
@@ -85,7 +65,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   imgContainer: {
-    marginTop: 50,
+   marginTop:45,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -94,9 +74,30 @@ const styles = StyleSheet.create({
     height: 200,
     borderRadius: 7,
   },
+  titleRecipe: {
+    fontSize: 30,
+    color: "#fff",
+    alignItems:"center",
+    padding:10
+  },
   stepRecipes: {
     flex: 3,
-   
+  },
+  backArrow: {
+    color: "#fff",
+    marginRight:40,
+  },
+  favoriteRecipe: {
+    color: "#fff",
+    marginLeft:40,
+  },
+  stepPreparation: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    padding:25,
+    borderWidth:0.2,
+    borderColor: '#AC7A65',   
+    color:"#AC7A65"
   },
 });
-
